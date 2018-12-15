@@ -1,0 +1,8 @@
+export const sunglow = "#FBC531"
+export const gorse = "#FFED4E"
+export const blackWhite = "#FFFEF9"
+export const earlyDawn = "#FFF9E9"
+export const givry = "#F7E6B5"
+export const putty = "#E1C987"
+export const tana = "#DCD4BA"
+export const alto = "#D4D4D4"
