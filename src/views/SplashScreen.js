@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StatusBar, Animated, Easing } from "react-native";
+import { View, Text, StatusBar, Animated, Easing, AsyncStorage } from "react-native";
 import { sunglow, blackWhite, gorse } from "../styles/colors";
 import Logo from "../assets/Logo";
 
@@ -7,8 +7,14 @@ class SplashScreen extends Component {
     constructor() {
         super()
         this.state = {
+            // userToken: '',
+            isAuthenticated: false,
             fadeAnim: new Animated.Value(0)
         }
+    }
+    loadUserToken = async() => {
+        const userToken = await AsyncStorage.getItem('userToken');
+        this.props.navigation.navigate(userToken ? 'App' : 'Auth')
     }
     componentDidMount() {
         Animated.timing(
@@ -19,7 +25,7 @@ class SplashScreen extends Component {
                 easing: Easing.linear
             }
         ).start()
-        setTimeout(() => this.props.navigation.navigate('Auth'), 2000)
+        this.loadUserToken()
     }
     render() {
         return (
