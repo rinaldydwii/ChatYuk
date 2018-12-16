@@ -5,7 +5,6 @@ const AppNavigator = createSwitchNavigator({
     ...SwitchRoutes,
     Auth: { screen: createStackNavigator(AuthRoutes) },
     App: { screen: createStackNavigator(AppRoutes, {headerLayoutPreset: 'center'})}
-}, {
 })
 
 export default createAppContainer(AppNavigator)
