@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "784580676913",
+    "firebase_url": "https://chatyuk-13629.firebaseio.com",
+    "project_id": "chatyuk-13629",
+    "storage_bucket": "chatyuk-13629.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784580676913:android:5ba23127cb671442",
+        "android_client_info": {
+          "package_name": "com.chatyuk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784580676913-6tbklaj61pn260rdntfr1728b04rvpg2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWUMzrkXWjv9V61eyvv6km2KO01jNK3LA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
