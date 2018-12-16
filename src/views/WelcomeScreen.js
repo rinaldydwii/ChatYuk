@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StatusBar, Animated, Easing, TouchableHighlight } from "react-native";
+import { View, Text, StatusBar, Animated, Easing, TouchableHighlight, Dimensions } from "react-native";
 import Logo from "../assets/Logo";
 import { blackWhite, sunglow, gorse, earlyDawn } from "../styles/colors";
 
@@ -7,7 +7,7 @@ class WelcomeScreen extends Component {
     constructor() {
         super()
         this.state = {
-            bottomPos: new Animated.Value(0),
+            topPos: new Animated.Value(1),
             fadeContent: new Animated.Value(0)
         }
     }
@@ -17,9 +17,9 @@ class WelcomeScreen extends Component {
     componentDidMount() {
         Animated.sequence([
             Animated.timing(
-                this.state.bottomPos,
+                this.state.topPos,
                 {
-                    toValue: 298,
+                    toValue: 0,
                     duration: 500,
                     easing: Easing.elastic(1.5)
                 }
@@ -36,10 +36,15 @@ class WelcomeScreen extends Component {
         ]).start()
     }
     render() {
+        let vCenter = (Dimensions.get('window').height/2) - 107
+        let top = this.state.topPos.interpolate({
+            inputRange: [0, 1],
+            outputRange: [100, vCenter]
+        })
         return (
             <View style={{flex: 1, backgroundColor: sunglow}}>
                 <StatusBar backgroundColor={sunglow}/>
-                <Animated.View style={{flex: 1, justifyContent: 'center', alignItems: 'center', position: 'absolute', top: 0, bottom: this.state.bottomPos, left: 0, right: 0}}>
+                <Animated.View style={{flex: 1, alignItems: 'center', position: 'absolute', top: top, bottom: 0, left: 0, right: 0}}>
                     <Logo width={116} height={107} />
                     <Text style={{color: blackWhite, fontSize: 33, fontFamily: 'Lato Regular'}}><Text style={{color: gorse, fontFamily: 'Lato Heavy'}}>Chat</Text>Yuk!</Text>
                 </Animated.View>
